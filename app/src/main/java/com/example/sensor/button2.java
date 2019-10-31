@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class button2 extends AppCompatActivity implements SensorEventListener {
 
-    private TextView value;
+    private TextView value, textView4;
     private SensorManager sensorManager;
     public static DecimalFormat DECIMAL_FORMATTER;
 
@@ -29,6 +29,7 @@ public class button2 extends AppCompatActivity implements SensorEventListener {
         symbols.setDecimalSeparator('.');
         DECIMAL_FORMATTER = new DecimalFormat("#.000", symbols);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        textView4 = (TextView) findViewById(R.id.textView4);
     }
 
 
@@ -57,6 +58,13 @@ public class button2 extends AppCompatActivity implements SensorEventListener {
             double magnitude = Math.sqrt((magX * magX) + (magY * magY) + (magZ * magZ));
             // set value on the screen
             value.setText(DECIMAL_FORMATTER.format(magnitude) + " \u00B5Tesla");
+            if(magnitude > 50){
+                textView4.setText("There is a lot of magnetism around you !");
+            }
+            else{
+                textView4.setText("The level of magnetism is average");
+            }
+
         }
     }
 

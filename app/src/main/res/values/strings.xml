@@ -7,4 +7,8 @@
     <string name="Magnet">Magnetometer says...</string>
     <string name="value">value : </string>
     <string name="textView4">result</string>
+    <string name="valueBar">result</string>
+    <string name="description">description</string>
+    <string name="description">description</string>
+    <string name="txt">bars</string>
 </resources>
