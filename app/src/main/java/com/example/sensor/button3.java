@@ -44,7 +44,7 @@ public class button3 extends AppCompatActivity implements SensorEventListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.button3);
         txt = findViewById(R.id.txt);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
