@@ -6,14 +6,17 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import pl.droidsonroids.gif.GifImageView;
 
 public class LightActivity extends AppCompatActivity implements SensorEventListener {
     private GifImageView display_img;
+    private ConstraintLayout container;
     private Sensor sensor = null;
     private SensorManager sensorManager = null;
     private boolean isRunning = false;
@@ -23,9 +26,9 @@ public class LightActivity extends AppCompatActivity implements SensorEventListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.light);
 
+        container = findViewById(R.id.img_container);
+
         display_img = new GifImageView(this);
-        display_img.setImageResource(R.mipmap.mg);
-        display_img.setVisibility(View.INVISIBLE);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
@@ -33,14 +36,15 @@ public class LightActivity extends AppCompatActivity implements SensorEventListe
 
     @Override
     public void onSensorChanged(SensorEvent event){
-        if(event.values[0] < 30 && !isRunning){
-            isRunning = true;
-            display_img.setVisibility(View.VISIBLE);
-        }
-        else {
-            isRunning = false;
-            display_img.setVisibility(View.INVISIBLE);
-        }
+        Log.e("aaa", "aaa : value " + event.values[0]);
+        if (sensor != null)
+            if(event.values[0] < 300 && !isRunning) {
+                isRunning = true;
+                container.setVisibility(View.VISIBLE);
+            } else if (event.values[0] >= 300 && isRunning) {
+                isRunning = false;
+                container.setVisibility(View.INVISIBLE);
+            }
     }
 
     @Override
