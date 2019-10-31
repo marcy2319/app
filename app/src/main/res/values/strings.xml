@@ -4,4 +4,7 @@
     <string name="Light_sensor">Light sensor</string>
     <string name="Magnetometre">Magnetometre</string>
     <string name="Barometre">Barometre</string>
+    <string name="Magnet">Magnetometer says...</string>
+    <string name="value">value : </string>
+    <string name="textView4">result</string>
 </resources>
