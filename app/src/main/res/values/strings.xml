@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sensor</string>
+    <string name="choose_sensor">Choose the sensor you want to test</string>
+    <string name="Light_sensor">Light sensor</string>
+    <string name="Magnetometre">Magnetometre</string>
+    <string name="Barometre">Barometre</string>
+</resources>
